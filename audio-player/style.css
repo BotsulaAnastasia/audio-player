@@ -31,3 +31,37 @@ body {
 .cover-wrapper img {
     width: 100%;
 }
+
+.content-wrapper {
+    padding: 0 30px 30px;
+}
+
+.song-artist {
+    color: rgb(209, 176, 46);
+    font-weight: 700;
+    font-size: 2vmax;
+}
+
+.song-title {
+    font-weight: 400;
+    font-size: 1.5vmax;
+    margin-bottom: 10px;
+}
+
+.time-wrapper {
+    font-size: 1vmax;
+    display: flex;
+    justify-content: space-between;
+}
+
+@media (max-width: 1070px) {
+    .song-artist {
+        font-size: 21px;
+    }
+    .song-title {
+        font-size: 16px;
+    }
+    .time-wrapper {
+        font-size: 11px;
+    }
+}
