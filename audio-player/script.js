@@ -11,5 +11,22 @@ const player = document.querySelector('.player-wrapper'),
         nextBtn = document.querySelector('.next-song-btn'),
         currentTime = document.querySelector('.current-time'),
         totalTime = document.querySelector('.total-time');
+
+const artists = ['Rick Astley', 'Queen', 'Lipps Inc.'];
+const songs = ['Never Gonna Give You Up', 'Radio Ga Ga', 'Funkytown'];
+let artistInd = 0;
+let songInd = 0;
+
+function loadSong(song) {
+        songTitle.innerHTML = song;
+        audio.src = `assets/music/${song}.mp3`;
+}
+
+function loadCover(artist) {
+        songArtist.innerHTML = artist;
+        cover.src = `assets/img/${artist}.jpg`;
+        document.body.style.backgroundImage = `url("./assets/img/${artist}.jpg")`;
+}
         
-        
+loadCover(artists[artistInd]);
+loadSong(songs[songInd]);        
