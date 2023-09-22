@@ -5,7 +5,6 @@
 }
 
 body {
-    background: url(./assets/img/rick_astley.jpg);
     background-position: center;
     background-size: cover;
     backdrop-filter: blur(10px);
