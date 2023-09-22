@@ -30,6 +30,7 @@ body {
     min-width: 320px;
     width: 30%;
     background-color: rgb(34, 34, 34);
+    border-radius: 3%;
 }
 
 .cover-wrapper {
@@ -38,6 +39,7 @@ body {
 
 .cover-wrapper img {
     width: 100%;
+    border-radius: 3%;
 }
 
 .content-wrapper {
@@ -81,15 +83,24 @@ body {
     border-radius: 50%; 
 }
 
-.btn-icon:hover {
+@media (min-width: 768px) {
+    .btn-icon:hover {
     cursor: pointer;  
-    background-color: rgba(209, 176, 46, 0.734);
+    background-color: rgb(209, 176, 46);
     transition: all .4s ease;
+    }
 }
 
-.btn-icon:active {
-    width: 1.5vmax;
-    height: 1.5vmax;
+.prev_next-btn:active {
+    width: 1rem;
+    height: 1rem;
+    transition: all .3s ease;
+}
+
+.play-btn:active {
+    width: 1.5rem;
+    height: 1.5rem;
+    transition: all .3s ease;
 }
 
 .prev_next-btn {
