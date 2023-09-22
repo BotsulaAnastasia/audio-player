@@ -37,7 +37,7 @@ body {
     padding: 30px;
 }
 
-.cover-wrapper img {
+.cover-img {
     width: 100%;
     border-radius: 3%;
 }
@@ -56,6 +56,23 @@ body {
     font-weight: 400;
     font-size: 1.5vmax;
     margin-bottom: 10px;
+}
+
+.progress-wrapper {
+    width: 100%;
+    height: 5px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    background: #fff;
+    cursor: pointer;
+    .progress {
+        background: rgb(209, 176, 46);
+        border-radius: 5px;
+        width: 100%;
+        height: 5px;
+        
+    }
 }
 
 .time-wrapper {
