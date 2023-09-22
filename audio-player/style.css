@@ -14,13 +14,21 @@ body {
     min-height: 100vh;
     font-family: 'Nunito Sans', Verdana, sans-serif;
     color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
 
+.main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 60px);
 }
 
 .player-wrapper {
     min-width: 320px;
     width: 30%;
-    margin: auto;
     background-color: rgb(34, 34, 34);
 }
 
@@ -107,6 +115,36 @@ body {
     height: 3vmax;
     background-color: transparent;
     border: 0;
+}
+
+.footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+    padding: 10px;
+}
+
+footer div:nth-child(2) {
+    margin-right: 50px;
+}
+
+.link {
+    width: 90px;
+    height: 100%;
+    background-color: #fff;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.link:last-child {
+    width: 40px;
+}
+
+.link a {
+    display: flex;
+    height: 100%;
+    
 }
 
 @media (max-width: 1070px) {
