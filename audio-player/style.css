@@ -5,7 +5,7 @@
 }
 
 body {
-    background: url(assets/img/rick_astley.jpg);
+    background: url(./assets/img/rick_astley.jpg);
     background-position: center;
     background-size: cover;
     backdrop-filter: blur(10px);
@@ -54,6 +54,61 @@ body {
     justify-content: space-between;
 }
 
+.buttons-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2vmax;
+}
+
+.button {
+    width: 3vmax;
+    height: 3vmax;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-icon {
+    border-radius: 50%; 
+}
+
+.btn-icon:hover {
+    cursor: pointer;  
+    background-color: rgba(209, 176, 46, 0.734);
+    transition: all .4s ease;
+}
+
+.btn-icon:active {
+    width: 1.5vmax;
+    height: 1.5vmax;
+}
+
+.prev_next-btn {
+    background-size: 100%;
+    width: 2vmax;
+    height: 2vmax;
+    background-color: transparent;
+    border: 0;
+}
+
+.prev-song-btn {
+    background-image: url(./assets/svg/play-prev.svg);
+}
+
+.next-song-btn {
+    background-image: url(./assets/svg/play-next.svg);
+}
+
+.play-btn {
+    background-image: url(./assets/svg/play.svg);
+    background-size: 100%;
+    width: 3vmax;
+    height: 3vmax;
+    background-color: transparent;
+    border: 0;
+}
+
 @media (max-width: 1070px) {
     .song-artist {
         font-size: 21px;
@@ -63,5 +118,17 @@ body {
     }
     .time-wrapper {
         font-size: 11px;
+    }
+    .button {
+        width: 32px;
+        height: 32px;
+    }
+    .prev_next-btn {
+        width: 22px;
+        height: 22px;
+    }
+    .play-btn {
+        width: 32px;
+        height: 32px;
     }
 }
