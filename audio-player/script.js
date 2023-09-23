@@ -17,11 +17,13 @@ const songs = ['Never Gonna Give You Up', 'Radio Ga Ga', 'Funkytown'];
 let artistInd = 0;
 let songInd = 0;
 
+// Load songs and songs titles
 function loadSong(song) {
         songTitle.innerHTML = song;
         audio.src = `assets/music/${song}.mp3`;
 }
 
+// Load covers and artists names
 function loadCover(artist) {
         songArtist.innerHTML = artist;
         cover.src = `assets/img/${artist}.jpg`;
@@ -31,17 +33,20 @@ function loadCover(artist) {
 loadCover(artists[artistInd]);
 loadSong(songs[songInd]);
 
+// Play song
 function playSong() {
         player.classList.add('play');
         playOrPause.style.backgroundImage = `url("./assets/svg/pause.svg")`;
         audio.play();
 }
 
+// Pause song
 function pauseSong() {
         player.classList.remove('play');
         playOrPause.style.backgroundImage = `url("./assets/svg/play.svg")`;
         audio.pause();
 }
+
 playBtn.addEventListener('click', () => {
         if (player.classList.contains('play')) {
                 pauseSong();
@@ -49,3 +54,31 @@ playBtn.addEventListener('click', () => {
                 playSong();
         }
 })
+
+// Next song
+function nextSong() {
+        songInd++;
+        if (songInd > songs.length - 1) songInd = 0; 
+        loadSong(songs[songInd]);
+
+        artistInd++;
+        if (artistInd > artists.length - 1) artistInd = 0;
+        loadCover(artists[artistInd]);
+        
+        playSong();   
+}
+nextBtn.addEventListener('click', nextSong);
+
+// Prev song
+function prevSong() {
+        songInd--;
+        if (songInd < 0) songInd = songs.length - 1; 
+        loadSong(songs[songInd]);
+
+        artistInd--;
+        if (artistInd < 0) artistInd = artists.length - 1;
+        loadCover(artists[artistInd]);
+        
+        playSong();   
+}
+prevBtn.addEventListener('click', prevSong);
