@@ -33,12 +33,14 @@ loadSong(songs[songInd]);
 
 function playSong() {
         player.classList.add('play');
-        audio.play()
+        playOrPause.style.backgroundImage = `url("./assets/svg/pause.svg")`;
+        audio.play();
 }
 
 function pauseSong() {
         player.classList.remove('play');
-        audio.pause()
+        playOrPause.style.backgroundImage = `url("./assets/svg/play.svg")`;
+        audio.pause();
 }
 playBtn.addEventListener('click', () => {
         if (player.classList.contains('play')) {
