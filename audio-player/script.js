@@ -82,3 +82,24 @@ function prevSong() {
         playSong();   
 }
 prevBtn.addEventListener('click', prevSong);
+
+// Progress bar
+function updateProgressBar() {
+        const total = audio.duration;
+        const current = audio.currentTime;
+        const progressWidth = (current / total) * 100;
+        progress.style.width = `${progressWidth}%`;
+}
+audio.addEventListener('timeupdate', updateProgressBar);
+
+// Control progress bar
+function controlProgressBar(e) {
+        const widthWrapper = this.clientWidth;
+        const clickWrapperX = e.offsetX;
+        const total = audio.duration;
+        audio.currentTime = (clickWrapperX / widthWrapper) * total;
+}
+progressWrapper.addEventListener('click', controlProgressBar);
+
+// Autoplay
+audio.addEventListener('ended', nextSong);
