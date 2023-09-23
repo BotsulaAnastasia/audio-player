@@ -29,4 +29,21 @@ function loadCover(artist) {
 }
         
 loadCover(artists[artistInd]);
-loadSong(songs[songInd]);        
+loadSong(songs[songInd]);
+
+function playSong() {
+        player.classList.add('play');
+        audio.play()
+}
+
+function pauseSong() {
+        player.classList.remove('play');
+        audio.pause()
+}
+playBtn.addEventListener('click', () => {
+        if (player.classList.contains('play')) {
+                pauseSong();
+        } else {
+                playSong();
+        }
+})
