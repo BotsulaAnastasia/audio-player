@@ -33,6 +33,11 @@ function loadCover(artist) {
 loadCover(artists[artistInd]);
 loadSong(songs[songInd]);
 
+// Load song duration
+audio.addEventListener('loadeddata', () => {
+        totalTime.textContent = convertTime(audio.duration);
+})
+
 // Play song
 function playSong() {
         player.classList.add('play');
@@ -85,19 +90,23 @@ prevBtn.addEventListener('click', prevSong);
 
 // Progress bar
 function updateProgressBar() {
-        const total = audio.duration;
-        const current = audio.currentTime;
-        const progressWidth = (current / total) * 100;
+        const progressWidth = (audio.currentTime / audio.duration) * 100;
         progress.style.width = `${progressWidth}%`;
+        currentTime.textContent = convertTime(audio.currentTime);       
 }
 audio.addEventListener('timeupdate', updateProgressBar);
+
+function convertTime(time) {
+        let min = String(Math.trunc(time / 60));
+        let sec = String(Math.floor(time % 60)).padStart(2, '0');
+        return `${min}:${sec}`;
+}
 
 // Control progress bar
 function controlProgressBar(e) {
         const widthWrapper = this.clientWidth;
         const clickWrapperX = e.offsetX;
-        const total = audio.duration;
-        audio.currentTime = (clickWrapperX / widthWrapper) * total;
+        audio.currentTime = (clickWrapperX / widthWrapper) * audio.duration;
 }
 progressWrapper.addEventListener('click', controlProgressBar);
 
