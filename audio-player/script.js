@@ -10,7 +10,11 @@ const player = document.querySelector('.player-wrapper'),
         prevBtn = document.querySelector('.prev-song-btn'),
         nextBtn = document.querySelector('.next-song-btn'),
         currentTime = document.querySelector('.current-time'),
-        totalTime = document.querySelector('.total-time');
+        totalTime = document.querySelector('.total-time'),
+        volumeSlider = document.querySelector('.volume-slider'),
+        volumePercent = document.querySelector('.volume-percentage'),
+        volumeBtn = document.querySelector('.volume-btn'),
+        volumeIco = document.querySelector('.ico-volume');
 
 const artists = ['Rick Astley', 'Queen', 'Lipps Inc.'];
 const songs = ['Never Gonna Give You Up', 'Radio Ga Ga', 'Funkytown'];
@@ -33,9 +37,10 @@ function loadCover(artist) {
 loadCover(artists[artistInd]);
 loadSong(songs[songInd]);
 
-// Load song duration
+// Load song duration and default volume
 audio.addEventListener('loadeddata', () => {
         totalTime.textContent = convertTime(audio.duration);
+        audio.volume = .25;
 })
 
 // Play song
@@ -112,3 +117,21 @@ progressWrapper.addEventListener('click', controlProgressBar);
 
 // Autoplay
 audio.addEventListener('ended', nextSong);
+
+// Change volume
+volumeSlider.addEventListener('click', e => {
+        const sliderWidth = window.getComputedStyle(volumeSlider).width;
+        const newVolume = e.offsetX / parseInt(sliderWidth);
+        audio.volume = newVolume;
+        volumePercent.style.width = newVolume * 100 + '%';
+})
+
+// Up or mute volume
+volumeBtn.addEventListener('click', () => {
+        audio.muted = !audio.muted;
+        if (audio.muted) {
+                volumeIco.style.backgroundImage = `url("./assets/svg/volume-mute.svg")`;
+        } else {
+                volumeIco.style.backgroundImage = `url("./assets/svg/volume-up.svg")`;
+        }
+})

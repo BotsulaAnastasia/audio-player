@@ -45,6 +45,12 @@ body {
     padding: 0 30px 30px;
 }
 
+.song-and-volume {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
 .song-artist {
     color: rgb(209, 176, 46);
     font-weight: 700;
@@ -78,6 +84,9 @@ body {
     display: flex;
     justify-content: space-between;
     margin: 5px 0;
+    .total-time {
+        color: rgb(209, 176, 46);
+    }
 }
 
 .buttons-wrapper {
@@ -104,6 +113,48 @@ body {
     cursor: pointer;  
     background-color: rgb(209, 176, 46);
     transition: all .4s ease;
+    }
+    .volume-container {
+        cursor: pointer;
+        position: relative;
+        z-index: 2;
+        .volume-btn {
+          height: 2.5vmax;
+          display: flex;
+          align-items: center;
+          .ico-volume {
+            background-image: url(./assets/svg/volume-up.svg);
+            background-size: 100%;
+            width: 2.5vmax;
+            height: 2.5vmax;
+          }
+        }
+        .volume-slider {
+          position: absolute;
+          top: 1.25vmax;
+          left: 0;
+          transform: translateY(-50%);
+          z-index: -1;
+          width: 0;
+          height: 40%;
+          background: white;
+          box-shadow: 0 0 20px #000a;
+          transition: .25s;
+          border-radius: 10px;
+          .volume-percentage {
+            background: rgb(209, 176, 46);
+            height: 100%;
+            width: 25%;
+            border-radius: 10px;
+          }
+        }
+    }
+    
+    .volume-container:hover {
+        .volume-slider {
+            left: -100px;
+            width: 100px;
+          }
     }
 }
 
@@ -195,5 +246,18 @@ footer div:nth-child(2) {
     .play-btn {
         width: 32px;
         height: 32px;
+    }
+    .volume-container {
+        .volume-btn {
+            height: 27px;
+            .ico-volume {
+                width: 27px;
+                height: 27px;
+            }
+        }
+        .volume-slider {
+            height: 10px;
+            top: 13px;
+        }
     }
 }
